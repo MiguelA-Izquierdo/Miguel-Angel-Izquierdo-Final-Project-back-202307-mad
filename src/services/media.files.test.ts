@@ -4,7 +4,7 @@ import { CloudinaryService } from './media.files';
 
 jest.mock('cloudinary');
 
-describe('Given CloudinaryService', () => {
+describe('Given the class CloudinaryService', () => {
   cloudinaryBase.v2 = {
     config: jest.fn().mockReturnValue({}),
     uploader: {},
