@@ -26,18 +26,18 @@ export class CloudinaryService {
 
     try {
       const result = await this.cloudinary.uploader.upload(imagePath, options);
-      let url2 = result.url;
-      const x = url2.split('/');
-      x.pop();
-      x.pop();
-      url2 = x.join('/');
+      result.url = result.url.replace('http:', 'https:');
+      const urlParts = result.url.split('/');
+      urlParts.splice(-2, 2);
+      const url2 = urlParts.join('/');
+      result.urlCard = String(url2) + '/w_250/' + String(result.public_id);
       const imageData: ImgData = {
         publicId: result.public_id,
         width: result.width,
         height: result.height,
         format: result.format,
         url: result.url,
-        urlCard: String(url2) + '/w_200,h_184/' + String(result.public_id),
+        urlCard: result.urlCard,
       };
       return imageData;
     } catch (error) {
