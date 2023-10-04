@@ -9,6 +9,7 @@
     "server": "cross-env PORT=3300 DEBUG=TravelBook* nodemon dist/index.js",
     "server:prod": "cross-env PORT=3300 node dist/index.js",
     "build": "tsc --watch",
+    "build:prod": "npm install && tsc",
     "test": "jest --watchAll --coverage",
     "test:prod": "jest --watchAll --coverage --watchAll=false --passWithNoTests",
     "test:fast": "jest --watchAll"
